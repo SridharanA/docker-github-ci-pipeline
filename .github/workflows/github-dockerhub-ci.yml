@@ -10,7 +10,7 @@ on:
 # jobs - tasks
 jobs:
   build_push_image_to_dockerhub:  # job1 - name
-    runs_on: ubuntu-latest
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code to ubuntu machine
