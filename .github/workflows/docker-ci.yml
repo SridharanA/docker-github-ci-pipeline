@@ -1,0 +1,29 @@
+# name of the github action/workflow
+name: docker github ci automation
+
+# trigger
+on:
+  branches:
+    - main
+  
+# jobs - tasks
+jobs:
+  build_push_image_to_dockerhub:  # job1 - name
+    runs_on: ubuntu-latest
+
+    steps:
+      - name: Checkout code to ubuntu machine
+        uses: actions/checkout@v4
+
+      - name: login to Dockerhub
+        uses: docker/login-action@v3
+        with:
+          username: ${{SECRETS.DOCKERHUB_USERNAME}}
+          password: ${{SECRETS.DOCKERHUB_TOKEN}}
+
+      - name: build image and push it to Dockerhub
+        uses: docker/build-push-action@v6
+        with: 
+          context: .  # all contents(all subdirectories and files) in working directory needs to be recursively copied to image's filesystem or container
+          push: true
+          tags: dharansri534/docker-github-integration:latest
