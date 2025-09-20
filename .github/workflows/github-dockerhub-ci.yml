@@ -27,4 +27,4 @@ jobs:
         with: 
           context: .  # all contents(all subdirectories and files) in working directory needs to be recursively copied to image's filesystem or container
           push: true
-          tags: dharansri534/docker-github-integration:latest
+          tags: dharansri534/github-dockerhub-ci-integration
