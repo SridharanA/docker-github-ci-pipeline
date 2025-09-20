@@ -1,10 +1,11 @@
 # name of the github action/workflow
-name: docker github ci automation
+name: github dockerhub ci automation
 
 # trigger
 on:
-  branches:
-    - main
+  push:
+    branches:
+      - main
   
 # jobs - tasks
 jobs:
